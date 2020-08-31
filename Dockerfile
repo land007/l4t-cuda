@@ -1,6 +1,8 @@
 FROM land007/l4t-ubuntu:latest
 #FROM land007/golang-web:latest
 #docker build -t land007/l4t-golang-cuda:latest .
+#FROM ubuntu:16.04
+#docker build -t land007/l4t-cuda:16.04 .
 
 MAINTAINER Jia Yiqiu <yiqiujia@hotmail.com>
 
