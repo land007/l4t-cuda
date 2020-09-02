@@ -1,8 +1,6 @@
-FROM land007/l4t-ubuntu:latest
-#FROM land007/golang-web:latest
+#FROM land007/l4t-ubuntu:18.04
+FROM land007/golang-web:18.04
 #docker build -t land007/l4t-golang-cuda:latest .
-#FROM ubuntu:16.04
-#docker build -t land007/l4t-cuda:16.04 .
 
 MAINTAINER Jia Yiqiu <yiqiujia@hotmail.com>
 
@@ -85,9 +83,9 @@ ENV NVIDIA_DRIVER_CAPABILITIES=all
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN ln -s /usr/lib/aarch64-linux-gnu/libcudnn.so.7.6.4 /usr/lib/libcudnn.so.7
-#RUN ln -s /usr/lib/libcudnn.so.7 /etc/alternatives/libcudnn_so
+RUN ln -s /usr/lib/libcudnn.so.7 /etc/alternatives/libcudnn_so
 RUN ln -s /usr/lib/aarch64-linux-gnu/libcudnn_static_v7.a  /usr/lib/libcudnn_static_v7.a
-#RUN ln -s /usr/lib/libcudnn_static_v7.a /etc/alternatives/libcudnn_stlib
+RUN ln -s /usr/lib/libcudnn_static_v7.a /etc/alternatives/libcudnn_stlib
 RUN ln -s /usr/lib/aarch64-linux-gnu/libcublas.so.10 /usr/lib/libcublas.so.10.0
 RUN cd /usr/local/cuda-10.0/targets/aarch64-linux/lib/stubs/ && ln -s libcuda.so libcuda.so.1
 
